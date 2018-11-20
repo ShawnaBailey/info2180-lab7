@@ -7,8 +7,8 @@ $dbname = 'world';
 $countryname= $_GET ['country'];
 
 $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-$country = name3($_GET["country"]);
-if (name3($_GET["all"]) === "true") {
+$country = htmlentities($_GET["country"]);
+if (htmlentities($_GET["all"]) === "true") {
   $stmt = $conn->query("SELECT * FROM countries");
 } else {
   $stmt = $conn->query("SELECT * FROM countries WHERE name = '$country'");
